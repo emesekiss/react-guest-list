@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import GuestForm from './GuestForm';
 import GuestList from './GuestList';
 
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+
+export const baseUrl = 'https://react-guest-list-emese.herokuapp.com/';
+
+const headerStyle = css`
+  text-align: center;
+  padding: 20px 0px 40px 0;
+  color: #fffafb;
+  font-weight: bold;
+  font-size: 35px;
+`;
+
 function App() {
   const [allGuests, setAllGuests] = useState([]);
+
+  useEffect(() => {
+    async function getAllGuests() {
+      const response = await fetch(`${baseUrl}/`);
+      const allGuestsData = await response.json();
+      setAllGuests(allGuestsData);
+    }
+    getAllGuests();
+  }, []);
 
   const handleRegister = (guest) => setAllGuests([...allGuests, guest]);
 
@@ -22,6 +44,7 @@ function App() {
 
   return (
     <div>
+      <header css={headerStyle}>Daniel’s Baby Shower Guest List</header>
       <GuestForm handleRegister={handleRegister} />
       <GuestList
         allGuests={allGuests}
