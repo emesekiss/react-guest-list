@@ -4,7 +4,7 @@ Created a guest list using React.
 
 ## Netlify Link
 
-[Netlify] dazzling-noether-18c2a1.netlify.app
+[Netlify] https://dazzling-noether-18c2a1.netlify.app/
 
 ## How to use
 
