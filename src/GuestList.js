@@ -1,7 +1,6 @@
-import { baseUrl } from './App.js';
-
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+import { baseUrl } from './App.js';
 
 const guestListStyle = css`
   max-width: 1000px;

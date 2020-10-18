@@ -1,9 +1,8 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import { useState, useEffect } from 'react';
 import GuestForm from './GuestForm';
 import GuestList from './GuestList';
-
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
 
 export const baseUrl = 'https://react-guest-list-emese.herokuapp.com';
 

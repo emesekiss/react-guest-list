@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { baseUrl } from './App.js';
-
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+import { useState } from 'react';
+import { baseUrl } from './App.js';
 
 const registerGuest = css`
   border-radius: 20px;
@@ -65,13 +64,13 @@ const GuestForm = ({ handleRegister }) => {
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
         placeholder="First Name"
-      ></input>
+      />
       <input
         css={inputStyle}
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
         placeholder="Last Name"
-      ></input>
+      />
       <button css={registerGuest} onClick={handleClick}>
         Register Guest
       </button>
