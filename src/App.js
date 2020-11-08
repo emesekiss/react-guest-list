@@ -33,7 +33,7 @@ function App() {
 
   const handleAttending = (guestId, attending) => {
     const guestIndex = allGuests.findIndex((element) => element.id === guestId);
-    let newAttending = [...allGuests];
+    const newAttending = [...allGuests];
     newAttending[guestIndex] = {
       ...newAttending[guestIndex],
       attending: attending,

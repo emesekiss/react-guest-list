@@ -40,30 +40,22 @@ const guestContainer = css`
 `;
 
 const GuestList = ({ allGuests, handleDelete, handleAttending }) => {
-  console.log(allGuests);
-
-  const handleDeleteClick = (id) => {
-    async function deleteGuest() {
-      const response = await fetch(`${baseUrl}/${id}`, { method: 'DELETE' });
-      const deletedGuest = await response.json();
-      handleDelete(deletedGuest.id);
-    }
-    deleteGuest();
+  const handleDeleteClick = async (id) => {
+    const response = await fetch(`${baseUrl}/${id}`, { method: 'DELETE' });
+    const deletedGuest = await response.json();
+    handleDelete(deletedGuest.id);
   };
 
-  const handleAttendingClick = (id, checked) => {
-    async function attendGuest() {
-      const response = await fetch(`${baseUrl}/${id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ attending: checked }),
-      });
-      const updatedGuest = await response.json();
-      handleAttending(updatedGuest.id, updatedGuest.attending);
-    }
-    attendGuest();
+  const handleAttendingClick = async (id, checked) => {
+    const response = await fetch(`${baseUrl}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ attending: checked }),
+    });
+    const updatedGuest = await response.json();
+    handleAttending(updatedGuest.id, updatedGuest.attending);
   };
 
   return (

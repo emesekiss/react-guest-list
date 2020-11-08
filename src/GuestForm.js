@@ -39,22 +39,19 @@ const GuestForm = ({ handleRegister }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const handleClick = () => {
-    async function postRegistered() {
-      const response = await fetch(`${baseUrl}/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ firstName: firstName, lastName: lastName }),
-      });
-      const createdGuest = await response.json();
+  const handleClick = async () => {
+    const response = await fetch(`${baseUrl}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ firstName: firstName, lastName: lastName }),
+    });
+    const createdGuest = await response.json();
 
-      handleRegister(createdGuest);
-      setFirstName('');
-      setLastName('');
-    }
-    postRegistered();
+    handleRegister(createdGuest);
+    setFirstName('');
+    setLastName('');
   };
 
   return (
